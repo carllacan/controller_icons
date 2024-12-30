@@ -272,8 +272,6 @@ func get_matching_event(path: String, input_type: InputType = _last_input_type, 
 
 	var fallback = null
 	for event in events:
-		if not is_instance_valid(event): continue
-
 		match event.get_class():
 			"InputEventKey", "InputEventMouse", "InputEventMouseMotion", "InputEventMouseButton":
 				if input_type == InputType.KEYBOARD_MOUSE:
@@ -604,10 +602,6 @@ func _convert_mouse_button_to_path(button_index: int):
 			return "mouse/right"
 		MOUSE_BUTTON_MIDDLE:
 			return "mouse/middle"
-		MOUSE_BUTTON_WHEEL_UP:
-			return "mouse/wheel_up"
-		MOUSE_BUTTON_WHEEL_DOWN:
-			return "mouse/wheel_down"
 		_:
 			return "mouse/sample"
 
